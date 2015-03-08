@@ -3,7 +3,7 @@
 // http://www.boost.org/doc/libs/1_57_0/libs/coroutine/doc/html/coroutine/motivation.html
 // The above didn't quite work, so it was merged with this:
 // http://www.boost.org/doc/libs/1_57_0/doc/html/boost_asio/example/cpp11/spawn/echo_server.cpp
-// So basically this is a frog DNA veliciraptor.
+// So it's a mutt.
 
 #include "precompiled_headers.hpp"
 
@@ -39,7 +39,6 @@ public:
   void go(boost::asio::yield_context yield) {
     auto self(shared_from_this());
     const int max_length=1024;
-    std::cerr << "MARIO 1\n";
     try{
         for(;;){
             // local data-buffer
@@ -50,16 +49,9 @@ public:
             // read asynchronous data from socket
             // execution context will be suspended until
             // some bytes are read from socket
-            std::cerr << "MARIO 2\n";
             std::size_t length=socket_.async_read_some(
                     boost::asio::buffer(data),
                     yield[ec]);
-            std::cerr << "MARIO 3\n";
-//TS: I don't understand- why wouldn't calling yield instantly
-//    stop this coroutine from executing, before the call to async_read_some
-//    had finished?
-//    It looks like yield returns a function, but stores the data it will be
-//    called with in the index braces.
             if (ec==boost::asio::error::eof)
                 break; //connection closed cleanly by peer
             else if(ec)
@@ -97,17 +89,12 @@ public:
   void run(boost::asio::yield_context yield) {
       tcp::acceptor acceptor_(io_service_,
                               tcp::endpoint(tcp::v4(), port_));
-      std::cerr << "MARIO a\n";
       for (;;)
       {
-        std::cerr << "MARIO b\n";
         boost::system::error_code ec;
         tcp::socket socket(io_service_);
-        std::cerr << "MARIO c\n";
         acceptor_.async_accept(socket, yield[ec]);
-        std::cerr << "MARIO d\n";
         if (!ec) {
-          std::cerr << "MARIO e\n";
           auto s = std::make_shared<session>(std::move(socket));
           session * sp = s.get();
           auto pee = boost::bind(&session::go, sp, _1);

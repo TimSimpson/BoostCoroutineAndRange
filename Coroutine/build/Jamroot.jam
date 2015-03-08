@@ -52,11 +52,30 @@ exe asio_example2
         precompiled_headers
     ;
 
+exe fibonacci
+    :   ../src/fibonacci.cpp
+        precompiled_headers
+    ;
+
+
+exe fibonacci2
+    :   ../src/fibonacci2.cpp
+        precompiled_headers
+    ;
+
+exe reverse_fibonacci
+    :   ../src/reverse_fibonacci.cpp
+        precompiled_headers
+    ;
+
 
 install exe
     :   asio_example1
         asio_example2
         example1
+        fibonacci
+        fibonacci2
+        reverse_fibonacci
     :   <install-dependencies>on <install-type>EXE
         <install-type>LIB
     ;
