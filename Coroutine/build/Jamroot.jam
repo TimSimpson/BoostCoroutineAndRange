@@ -52,6 +52,11 @@ exe asio_example2
         precompiled_headers
     ;
 
+exe exceptions
+    :   ../src/exceptions.cpp
+        precompiled_headers
+    ;
+
 exe fibonacci
     :   ../src/fibonacci.cpp
         precompiled_headers
@@ -63,19 +68,34 @@ exe fibonacci2
         precompiled_headers
     ;
 
+exe push_type_range
+    :   ../src/push_type_range.cpp
+        precompiled_headers
+    ;
+
 exe reverse_fibonacci
     :   ../src/reverse_fibonacci.cpp
         precompiled_headers
     ;
+
+exe symmetric_coro
+    :   ../src/symmetric_coro.cpp
+        precompiled_headers
+    ;
+
+
 
 
 install exe
     :   asio_example1
         asio_example2
         example1
+        exceptions
         fibonacci
         fibonacci2
+        push_type_range
         reverse_fibonacci
+        symmetric_coro
     :   <install-dependencies>on <install-type>EXE
         <install-type>LIB
     ;

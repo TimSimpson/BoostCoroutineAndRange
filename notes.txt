@@ -5,3 +5,59 @@ http://www.boost.org/doc/libs/1_57_0/doc/html/boost_asio/overview/core/coroutine
 http://www.boost.org/doc/libs/1_57_0/libs/bind/bind.html
 http://www.boost.org/doc/libs/1_39_0/doc/html/boost_asio/example/echo/async_tcp_echo_server.cpp
 http://www.boost.org/doc/libs/1_57_0/libs/coroutine/doc/html/coroutine/motivation.html
+
+
+
+
+
+
+Intro
+-----
+
+
+Fibonacci
+---------
+Simple use
+
+Fib2
+----
+Cleaned up use case.
+
+asio_example 1
+--------------
+
+asio_example 2
+--------------
+
+Exceptions
+----------
+
+You can't absorb the boost::coroutines::detail::forced_unwind exception, but
+I was unable to find an example where catching that would cause issues.
+
+http://www.boost.org/doc/libs/1_57_0/libs/coroutine/doc/html/coroutine/coroutine/asymmetric.html
+
+
+push_type range
+---------------
+push_type assymetric coros support output iterators as well
+- see push_type_range
+
+symmetric coro
+--------------
+Show example from docs
+
+TODO: Maybe think of a more compelling reason for this to exist. I'm not sure what it accomplishes over the assymmetric ones.
+
+TODO: Stack allocator stuff?
+
+
+Architectures
+-------------
+Go over where it works and doesn't work.
+
+Duff's Device
+-------------
+Show support for stackless coroutines using Duff's device
+
+Show Boost ASIO's stackless coroutine libraries.
