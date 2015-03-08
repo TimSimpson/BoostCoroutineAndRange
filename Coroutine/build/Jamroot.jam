@@ -1,0 +1,62 @@
+import boost ;
+using testing ;
+
+import pch ;
+
+boost.use-project 1.57 ;
+
+project CoroutineExamples
+    :   requirements
+        <library>/boost//headers
+        <library>/boost//date_time
+        <library>/boost//coroutine
+        <library>/boost//regex
+       <include>../src
+    :   usage-requirements
+        <include>../src
+    ;
+
+cpp-pch precompiled_headers
+    :   ../src/precompiled_headers.hpp
+    ;
+
+# Not sure if pch needs to be first...
+#obj calc_obj
+#   :   calc.cpp
+#    :   <link>shared:<define>CALCLIB_DYN_LINK=1
+#    ;
+
+#unit-test calc_test
+#    :   test.cpp
+#        calc_obj
+#    ;
+
+#lib calc_lib
+    #:   calc_obj
+#        calc_test
+    #;
+
+exe example1
+    :   ../src/example1.cpp
+        precompiled_headers
+    ;
+
+
+exe asio_example1
+    :   ../src/asio_example1.cpp
+        precompiled_headers
+    ;
+
+exe asio_example2
+    :   ../src/asio_example2.cpp
+        precompiled_headers
+    ;
+
+
+install exe
+    :   asio_example1
+        asio_example2
+        example1
+    :   <install-dependencies>on <install-type>EXE
+        <install-type>LIB
+    ;

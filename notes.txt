@@ -1,0 +1,7 @@
+http://theboostcpplibraries.com/boost.asio-coroutines
+http://blog.think-async.com/2010/03/potted-guide-to-stackless-coroutines.html
+http://www.boost.org/doc/libs/1_57_0/doc/html/boost_asio/reference/coroutine.html
+http://www.boost.org/doc/libs/1_57_0/doc/html/boost_asio/overview/core/coroutine.html
+http://www.boost.org/doc/libs/1_57_0/libs/bind/bind.html
+http://www.boost.org/doc/libs/1_39_0/doc/html/boost_asio/example/echo/async_tcp_echo_server.cpp
+http://www.boost.org/doc/libs/1_57_0/libs/coroutine/doc/html/coroutine/motivation.html
