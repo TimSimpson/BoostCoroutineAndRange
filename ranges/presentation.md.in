@@ -1,0 +1,150 @@
+# Boost.Range
+
+---------
+
+## Introduction
+
+- Are like an STL container except don't necessarily own elements
+- A range is a pair of iterators.
+    - begin iterator - an iterator to the first element
+    - end iterator - an iterator to one past the last element
+
+---
+
+## Types of ranges
+
+- Single pass range
+- Forward range
+- Bidierectional range
+- Random access range
+
+---
+
+## Using a Range
+
+- Functions:
+    - `boost::begin`
+    - `boost::end`
+- Metafunctions:
+    - `range_iterator`
+    - `range_value`
+    - `range_category`
+    - `has_range_iterator`
+
+---
+
+## What is a Range?
+
+- Retrieve iterators using either:
+    - Member functions
+        - `begin`
+        - `end`
+    - Free functions:
+        - `range_begin`(`begin` in C++11)
+        - `range_end`(`end` in C++11)
+
+---
+
+## What is a Range?
+
+- Retrieve the iterator type either using:
+    - Nested type:
+        - `iterator`
+        - `const_iterator`
+    - Metafunction:
+        - `boost::range_mutable_iterator`
+        - `boost::range_const_iterator`
+
+---------
+
+## Algorithms
+
+- Boost.Range provides range-based algorithms
+
+---
+
+## STL Algorithms
+
+%%sort_iterators%%
+
+---
+
+## Range Algorithms
+
+%%sort_range%%
+
+---
+
+## Intersection
+
+```cpp
+set_intersection(range1, range2, output_iterator)
+```
+
+---
+
+## Output iterator
+
+- Is only writable and not readable
+
+```cpp
+*iterator = value;
+```
+
+---
+
+## Intersection
+
+%%intersection_to_array%%
+
+---
+
+## Intersection
+
+%%intersection_copy%%
+
+---
+
+## Intersection
+
+%%intersection_print%%
+
+---------
+
+## Adaptors
+
+- Adaptors provide a view of another range
+
+---
+
+## Adaptors
+
+%%reverse_adaptors%%
+
+---
+
+## Adaptors
+
+%%map_values_adaptors%%
+
+---
+
+## Adaptors
+
+- We can find all employee names who make over 100,000
+
+%%rich_employees%%
+
+---
+
+## Zip ranges
+
+%%zip_ranges%%
+
+
+
+
+
+
+
+
