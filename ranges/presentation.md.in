@@ -15,7 +15,7 @@
 
 - Single pass range
 - Forward range
-- Bidierectional range
+- Bidirectional range
 - Random access range
 
 ---
@@ -54,6 +54,32 @@
     - Metafunction:
         - `boost::range_mutable_iterator`
         - `boost::range_const_iterator`
+
+---
+
+## Range core operations
+
+- empty
+- distance
+- size
+
+---
+
+
+## Range core operations
+
+%%operations%%
+
+---
+
+## What classes are ranges?
+
+- STL Containers
+- std::pair
+- and range adaptors
+
+
+
 
 ---------
 
@@ -119,11 +145,27 @@ set_intersection(range1, range2, output_iterator)
 
 ## Adaptors
 
+- filtered
+- map_keys
+- map_values
+- reveresed
+- sliced
+- strided
+- transformed
+
+---
+
+## Adaptors
+
+- reversed
+
 %%reverse_adaptors%%
 
 ---
 
 ## Adaptors
+
+- map_values
 
 %%map_values_adaptors%%
 
@@ -141,6 +183,49 @@ set_intersection(range1, range2, output_iterator)
 
 %%zip_ranges%%
 
+---
+
+## Join ranges
+
+%%join_ranges%%
+
+---
+
+## Integer ranges
+
+%%integer_ranges%%
+
+---------
+
+## Building ranges
+
+- `iterator_range` class holds two iterators in order to make them a range
+
+---
+
+## Single
+
+%%single%%
+
+---
+
+## Drop while
+
+%%drop_while%%
+
+---
+
+## Trim
+
+%%trim1%%
+
+---
+
+## Trim
+
+%%trim2%%
+
+---
 
 
 

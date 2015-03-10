@@ -7,6 +7,8 @@
 #include <boost/fusion/functional/generation/make_fused.hpp>
 #include <boost/fusion/functional/adapter/fused_procedure.hpp>
 #include <boost/fusion/adapted/boost_tuple.hpp>
+#include <boost/range/irange.hpp>
+#include <boost/range/join.hpp>
 #include <iostream>
 #include <vector>
 
@@ -56,8 +58,10 @@ void find_rich_employees()
     };
     // sample(rich_employees)
     auto rich_employee_names = employees
-        | boost::adaptors::filtered([](const employee& e) { return e.salary > 100000; })
-        | boost::adaptors::transformed([](const employee& e) { return e.name; });
+        | boost::adaptors::filtered([](const employee& e) 
+            { return e.salary > 100000; })
+        | boost::adaptors::transformed([](const employee& e) 
+            { return e.name; });
     for(std::string name:rich_employee_names)
     {
         std::cout << name << std::endl;
@@ -71,11 +75,37 @@ void zip_ranges()
     std::vector<float> v2 = { 1.01, 2.03, 3.4, 4.6};
     // sample(zip_ranges)
     auto differences = boost::combine(v1, v2) 
-        | boost::adaptors::transformed(boost::fusion::make_fused(+[](float x, float y)
-        {
-            return x - y;
-        }));
+        | boost::adaptors::transformed(boost::fusion::make_fused(
+            +[](float x, float y)
+            {
+                return x - y;
+            })
+        );
     auto max_diff = boost::range::max_element(differences);
+    // end-sample
+}
+
+void join_ranges()
+{
+    // sample(join_ranges)
+    std::vector<int> v1 = { 1, 2, 3, 4};
+    std::vector<int> v2 = { 5, 6, 7, 8};
+    auto numbers = boost::range::join(v1, v2);
+    for(int i:numbers)
+    {
+        std::cout << i << std::endl;
+    }
+    // end-sample
+}
+
+void integer_ranges()
+{
+    // sample(integer_ranges)
+    auto numbers = boost::irange(1, 9);
+    for(int i:numbers)
+    {
+        std::cout << i << std::endl;
+    }
     // end-sample
 }
 
@@ -85,4 +115,6 @@ int main()
     map_values_adaptors();
     find_rich_employees();
     zip_ranges();
+    join_ranges();
+    integer_ranges();
 }

@@ -33,7 +33,8 @@ void intersection_print()
     std::set<int> s1 = {1, 2, 3, 4};
     std::set<int> s2 = {3, 4, 5, 6};
     std::vector<int> result;
-    boost::range::set_intersection(s1, s2, boost::make_function_output_iterator(+[](int i)
+    boost::range::set_intersection(s1, s2, 
+        boost::make_function_output_iterator(+[](int i)
     {
         std::cout << i << std::endl;
     }));
