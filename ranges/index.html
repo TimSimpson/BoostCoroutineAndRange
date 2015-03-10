@@ -71,15 +71,12 @@
                     { 
                         src: 'plugin/highlight/highlight.js', 
                         async: true, 
-                        condition: function() { 
-                            return document.querySelector( 'pre code' ) != null; 
-                        }, 
                         callback: function() { 
                             hljs.initHighlightingOnLoad(); 
                         } 
-                    },
-                    { src: 'plugin/zoom-js/zoom.js', async: true },
-                    { src: 'plugin/notes/notes.js', async: true }
+                    }
+                    // { src: 'plugin/zoom-js/zoom.js', async: true },
+                    // { src: 'plugin/notes/notes.js', async: true }
                 ]
             });
 
