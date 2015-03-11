@@ -225,11 +225,53 @@ set_intersection(range1, range2, output_iterator)
 
 %%trim2%%
 
+
+---------
+
+## Caveats
+
+- Calling adaptors on temporaries, will crash
+
+%%map_caveat%%
+
 ---
 
+## Caveats
 
+- Passing lambdas to adaptors or iterators may not compile
+    - Iterators need to be default constructible
+    - Lambas are not default constructible
+    - Lambas are stored in the iterators
 
+---
 
+## Caveats
 
+- For non-generic lambdas that don't capture add a `+` in front of it to convert it to a plain function
 
+%%rich_employees%%
+
+---
+
+## Caveats
+
+- For other lambdas use a regular adaptor
+
+%%rich_employees_regular%%
+
+---
+
+## Caveats
+
+%%regular%%
+
+---------
+
+## Other libraries
+
+- Pstade.Oven
+    - http://p-stade.sourceforge.net/oven/doc/html/index.html
+
+- ranges-v3
+    - http://p-stade.sourceforge.net/oven/doc/html/index.html
 

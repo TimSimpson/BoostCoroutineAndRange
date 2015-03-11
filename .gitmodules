@@ -1,3 +1,6 @@
 [submodule "slides/reveal.js"]
 	path = slides/reveal.js
 	url = https://github.com/hakimel/reveal.js.git
+[submodule "ranges/src/Fit/"]
+    path = ranges/src/Fit/
+    url = https://github.com/pfultz2/Fit.git
