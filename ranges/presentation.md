@@ -225,9 +225,9 @@ for(int i:m | boost::adaptors::map_values)
 
 ```cpp
 auto rich_employee_names = employees
-    | boost::adaptors::filtered([](const employee& e) 
+    | boost::adaptors::filtered(+[](const employee& e) 
         { return e.salary > 100000; })
-    | boost::adaptors::transformed([](const employee& e) 
+    | boost::adaptors::transformed(+[](const employee& e) 
         { return e.name; });
 for(std::string name:rich_employee_names)
 {
@@ -370,12 +370,107 @@ void trim_example()
 }
 ```
 
+
+---------
+
+## Caveats
+
+- Calling adaptors on temporaries, will crash
+
+```cpp
+std::map<std::string, int> get_map()
+{
+    std::map<std::string, int> m = 
+    { 
+        {"One", 1},
+        {"Two", 2},
+        {"Three", 3},
+        {"Four", 4}
+    };
+    return m;
+}
+
+int main()
+{
+    for(int i:get_map() | boost::adaptors::map_values)
+    {
+        std::cout << i << std::endl;
+    }
+}
+```
+
 ---
 
+## Caveats
 
+- Passing lambdas to adaptors or iterators may not compile
+    - Iterators need to be default constructible
+    - Lambas are not default constructible
+    - Lambas are stored in the iterators
 
+---
 
+## Caveats
 
+- For non-generic lambdas that don't capture add a `+` in front of it to convert it to a plain function
 
+```cpp
+auto rich_employee_names = employees
+    | boost::adaptors::filtered(+[](const employee& e) 
+        { return e.salary > 100000; })
+    | boost::adaptors::transformed(+[](const employee& e) 
+        { return e.name; });
+for(std::string name:rich_employee_names)
+{
+    std::cout << name << std::endl;
+}
+```
+
+---
+
+## Caveats
+
+- For other lambdas use a regular adaptor
+
+```cpp
+void find_rich_employees(int salary)
+{
+    auto rich_employee_names = employees
+        | boost::adaptors::filtered(regular([&](const employee& e) 
+            { return e.salary > salary; }))
+        | boost::adaptors::transformed(+[](const employee& e) 
+            { return e.name; });
+    for(std::string name:rich_employee_names)
+    {
+        std::cout << name << std::endl;
+    }
+    auto pred = regular([&](const employee& e) 
+            { return e.salary > salary; });
+    using predicate = decltype(pred);
+    static_assert(std::is_default_constructible<predicate>() and std::is_copy_assignable<predicate>(), "Not regular");
+}
+```
+
+---
+
+## Caveats
+
+```cpp
+template<class F>
+auto regular(F f)
+{
+    return fit::indirect(boost::optional<F>(std::move(f)));
+}
+```
+
+---------
+
+## Other libraries
+
+- Pstade.Oven
+    - http://p-stade.sourceforge.net/oven/doc/html/index.html
+
+- ranges-v3
+    - http://p-stade.sourceforge.net/oven/doc/html/index.html
 
 
