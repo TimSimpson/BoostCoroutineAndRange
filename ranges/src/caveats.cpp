@@ -24,12 +24,9 @@ std::map<std::string, int> get_map()
     };
     return m;
 }
-
 int main()
 {
     for(int i:get_map() | boost::adaptors::map_values)
-    {
         std::cout << i << std::endl;
-    }
 }
 // end-sample
