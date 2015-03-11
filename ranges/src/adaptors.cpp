@@ -58,9 +58,9 @@ void find_rich_employees()
     };
     // sample(rich_employees)
     auto rich_employee_names = employees
-        | boost::adaptors::filtered([](const employee& e) 
+        | boost::adaptors::filtered(+[](const employee& e) 
             { return e.salary > 100000; })
-        | boost::adaptors::transformed([](const employee& e) 
+        | boost::adaptors::transformed(+[](const employee& e) 
             { return e.name; });
     for(std::string name:rich_employee_names)
     {
