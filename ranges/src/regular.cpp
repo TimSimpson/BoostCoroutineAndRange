@@ -48,10 +48,6 @@ void find_rich_employees(int salary)
     {
         std::cout << name << std::endl;
     }
-    auto pred = regular([&](const employee& e) 
-            { return e.salary > salary; });
-    using predicate = decltype(pred);
-    static_assert(std::is_default_constructible<predicate>() and std::is_copy_assignable<predicate>(), "Not regular");
 }
 // end-sample
 

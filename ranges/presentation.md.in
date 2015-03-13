@@ -273,5 +273,5 @@ set_intersection(range1, range2, output_iterator)
     - http://p-stade.sourceforge.net/oven/doc/html/index.html
 
 - ranges-v3
-    - http://p-stade.sourceforge.net/oven/doc/html/index.html
+    - https://github.com/ericniebler/range-v3
 
