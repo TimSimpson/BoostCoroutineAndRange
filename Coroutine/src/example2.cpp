@@ -12,7 +12,7 @@ struct World {
 
 struct enemy
 {
-    bool defend(World world) {
+    bool defend(World & world) {
         if (being_attacked()) {
             defend_time = 3;
             while(defend_time > 0) {
@@ -21,7 +21,7 @@ struct enemy
         }
     }
 
-    void search(World world) {
+    void search(World & world) {
         optional<Target> t = boost::none;
         do {
             defend();
@@ -32,7 +32,7 @@ struct enemy
         } while(t)
     }
 
-    void seek(World world) {
+    void seek(World & world) {
         while (!touching(target)) {
             // Has to call world to pass time to move_to
             move_to(target, world.do_events());
@@ -40,7 +40,7 @@ struct enemy
         }
     }
 
-    void attack(World world) {
+    void attack(World & world) {
         while (play_animation(wind_up)) {
             world.do_events();
         }
@@ -49,7 +49,7 @@ struct enemy
         }
     }
 
-    void update(asymmetric_coroutine<int> & world) {
+    void update(World & world) {
         while(true) {
             search(world);
             seek(world);

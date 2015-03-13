@@ -23,11 +23,12 @@ struct enemy
                     current_state = defending;
                     defend_time = 3;
                 }
+                break;
             case seeking:
                 move_to(target, elapsed_time);
                 if (being_attacked()) {
                     current_state = defending;
-                    defend_time = 0;
+                    defend_time = 3;
                 }
                 if (touching(target)) {
                     current_state = attacking;
