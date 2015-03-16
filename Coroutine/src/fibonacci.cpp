@@ -4,6 +4,7 @@
 // http://www.boost.org/doc/libs/1_57_0/libs/coroutine/doc/html/coroutine/coroutine/asymmetric.html
 // Modificatied for presentation.
 
+#include <iostream>
 #include <boost/coroutine/all.hpp>
 
 

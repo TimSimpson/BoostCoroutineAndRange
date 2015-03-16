@@ -1,9 +1,10 @@
 import boost ;
+
+boost.use-project 1.57 ;
+
 using testing ;
 
 import pch ;
-
-boost.use-project 1.57 ;
 
 project CoroutineExamples
     :   requirements
@@ -14,6 +15,7 @@ project CoroutineExamples
        <include>../src
     :   usage-requirements
         <include>../src
+        <library>/boost//regex
     ;
 
 cpp-pch precompiled_headers
@@ -36,10 +38,10 @@ cpp-pch precompiled_headers
 #        calc_test
     #;
 
-exe example1
-    :   ../src/example1.cpp
-        precompiled_headers
-    ;
+#exe example1
+#    :   ../src/example1.cpp
+#        precompiled_headers
+#    ;
 
 
 exe asio_example1
@@ -89,7 +91,7 @@ exe symmetric_coro
 install exe
     :   asio_example1
         asio_example2
-        example1
+    #    example1
         exceptions
         fibonacci
         fibonacci2
