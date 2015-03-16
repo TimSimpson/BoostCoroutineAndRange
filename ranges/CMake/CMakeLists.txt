@@ -48,7 +48,7 @@ macro(process_presentation FILENAME)
         COMMAND
             sampler
             ${CMAKE_CURRENT_SOURCE_DIR}/../${FILENAME}.in
-            ${CMAKE_SOURCE_DIR}/../${FILENAME}
+            ${CMAKE_SOURCE_DIR}/../../slides/${FILENAME}
             ${filenames}
         DEPENDS
             ${CMAKE_CURRENT_SOURCE_DIR}/../${FILENAME}.in
@@ -61,4 +61,4 @@ macro(process_presentation FILENAME)
     add_custom_target(gen_${TARGETNAME} ALL DEPENDS ${FILENAME})
 endmacro(process_presentation)
 
-process_presentation(presentation.md)
+process_presentation(range.md)
