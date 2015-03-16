@@ -28,11 +28,11 @@ endforeach()
 
 find_package(Boost)
 include_directories(${Boost_INCLUDE_DIRS})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/Fit/)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../src/Fit/)
 
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
-add_subdirectory(sampler)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../sampler/CMake bin)
 
 file(GLOB filenames ${CMAKE_CURRENT_SOURCE_DIR}/../src/*.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../src/*.hpp)
 
@@ -47,11 +47,11 @@ macro(process_presentation FILENAME)
             ${FILENAME}
         COMMAND
             sampler
-            ${CMAKE_CURRENT_SOURCE_DIR}/${FILENAME}.in
-            ${CMAKE_SOURCE_DIR}/${FILENAME}
+            ${CMAKE_CURRENT_SOURCE_DIR}/../${FILENAME}.in
+            ${CMAKE_SOURCE_DIR}/../${FILENAME}
             ${filenames}
         DEPENDS
-            ${CMAKE_CURRENT_SOURCE_DIR}/${FILENAME}.in
+            ${CMAKE_CURRENT_SOURCE_DIR}/../${FILENAME}.in
             ${filenames}
         COMMENT
             "Generating ${FILENAME} from ${FILENAME}.in and source code samples."
