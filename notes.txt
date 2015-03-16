@@ -61,3 +61,20 @@ Duff's Device
 Show support for stackless coroutines using Duff's device
 
 Show Boost ASIO's stackless coroutine libraries.
+
+
+
+
+
+
+Jokes
+-----
+Q. What did the local class instance variable say to the scope that was destroying it?
+A. "RAII are you doing this to me?"
+
+Q. Why was the string convinced to give up it's internal buffer when the function called?
+A. The function made a moving argument.
+
+Q. Why wouldn't the template metaprogram compile?
+A. Over-adherance to the SNAFU rule.
+

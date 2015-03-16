@@ -1,2 +1,5 @@
 Coroutine/build/bin
 Coroutine/build/exe
+Coroutine/bin
+slides/node_modules
+slides/npm-debug.log
