@@ -8,12 +8,12 @@ if(CMAKE_HOST_APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 endif()
 
-set(ENABLE_CXXFLAGS_TO_CHECK 
-    -std=gnu++1y 
+set(ENABLE_CXXFLAGS_TO_CHECK
+    -std=gnu++1y
     -std=c++1y
-    -std=gnu++11 
+    -std=gnu++11
     -std=c++11
-    -std=gnu++0x 
+    -std=gnu++0x
     -std=c++0x)
 
 foreach(flag ${ENABLE_CXXFLAGS_TO_CHECK})
@@ -34,7 +34,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
 add_subdirectory(sampler)
 
-file(GLOB filenames ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp)
+file(GLOB filenames ${CMAKE_CURRENT_SOURCE_DIR}/../src/*.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../src/*.hpp)
 
 foreach (filename ${filenames})
     get_filename_component(basename ${filename} NAME_WE)
