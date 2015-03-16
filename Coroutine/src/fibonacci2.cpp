@@ -5,6 +5,7 @@
 
 #include <boost/coroutine/all.hpp>
 #include <boost/bind.hpp>
+#include <iostream>
 
 template<typename T>
 using a_coro = boost::coroutines::asymmetric_coroutine<T>;

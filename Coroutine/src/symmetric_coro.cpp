@@ -5,6 +5,8 @@
 
 #include <boost/coroutine/all.hpp>
 #include <boost/bind.hpp>
+#include <iostream>
+#include <vector>
 
 
 std::vector<int> merge(const std::vector<int>& a,const std::vector<int>& b)
