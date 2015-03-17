@@ -1,3 +1,4 @@
+// Written by Zach Laine.
 
 #include <algorithm>
 #include <cassert>

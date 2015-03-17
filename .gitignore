@@ -1,6 +1,8 @@
 Coroutine/build/bin
 Coroutine/build/exe
 Coroutine/bin
+ranges/build/bin
+ranges/build/exe
 slides/node_modules
 slides/npm-debug.log
 slides/range.md

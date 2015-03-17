@@ -10,7 +10,7 @@ If you want more information on these libraries, below are instructions on how t
 
 This repo has a few submodules it needs, such as Fit or the Reveal.JS framework. Initialize them with "git submodule update --init" before proceeding.
 
-Next, you'll need to build the "sampler" utility. This is used to embed example snippets later.
+Next, you'll need to build the "sampler" utility, written by Zach Laine. This is used to embed example snippets later.
 
 Enter the directory ./sampler/CMake and execute the following:
 

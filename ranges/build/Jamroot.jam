@@ -1,0 +1,61 @@
+import boost ;
+
+boost.use-project 1.57 ;
+
+using testing ;
+
+import pch ;
+
+
+project ranges
+    :   requirements
+        <library>/boost//headers
+        <include>../src
+        <include>../src/Fi
+t    ;
+
+exe adaptors
+    :   ../src/adaptors.cpp
+    ;
+
+exe building
+    :   ../src/building.cpp
+    ;
+
+exe caveats
+    :   ../src/caveats.cpp
+    ;
+
+exe example1
+    :   ../src/example1.cpp
+    ;
+
+exe intersection
+    :   ../src/intersection.cpp
+    ;
+
+exe operations
+    :   ../src/operations.cpp
+    ;
+
+exe regular
+    :   ../src/regular.cpp
+    ;
+
+exe sort
+    :   ../src/sort.cpp
+    ;
+
+install exe
+    :   adaptors
+        building
+        caveats
+        example1
+        intersection
+        operations
+        regular
+        sort
+    :   <install-dependencies>on <install-type>EXE
+        <install-type>LIB
+    ;
+
